@@ -26,33 +26,75 @@ public class Rational {
     // (When you write the simplify method later on, you should
     // also call it in this method to return the simplified result)
     public static Rational add(Rational r, Rational s) {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int rnum = r.numerator;
+        int rden = r.denominator;
+        int snum = s.numerator;
+        int sden = s.denominator;
+        int nume1 = rnum*sden;
+        int nume2 = snum*rden;
+        int den = rden*sden;
+        int num = nume1+nume2;
+        Rational t = new Rational(num, den);
+        Rational simpadd = Rational.simplify(t);
+
+        return simpadd;
     }
 
     // This method takes two Rationals, subtracts thems up, 
     // and returns a Rational equal to the difference
     public static Rational subtract(Rational r, Rational s) {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int rnum = r.numerator;
+        int rden = r.denominator;
+        int snum = s.numerator;
+        int sden = s.denominator;
+        int nume1 = rnum*sden;
+        int nume2 = snum*rden;
+        int den = rden*sden;
+        int num = nume1-nume2;
+        Rational t = new Rational(num, den);
+        Rational simpsub = Rational.simplify(t);
+
+        return simpsub;
     }
     
     public static Rational multiply(Rational r, Rational s) {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int rnum = r.numerator;
+        int rden = r.denominator;
+        int snum = s.numerator;
+        int sden = s.denominator;
+        int den = rden*sden;
+        int num = rnum*snum;
+        Rational t = new Rational(num, den);
+        Rational simpmult = Rational.simplify(t);
+
+        return simpmult;
     }
     
     public static Rational divide(Rational r, Rational s) {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int rnum = r.numerator;
+        int rden = r.denominator;
+        int snum = s.numerator;
+        int sden = s.denominator;
+        int den = rden*snum;
+        int num = rnum*sden;
+        Rational t = new Rational(num, den);
+        Rational simpdiv = Rational.simplify(t);
+
+        return simpdiv;
     }
 
     // Finds the greatest common factor between a and b
     // To find the greatest common factor, find the largest number x
     // such that a and b are both multiples of x
     public static int greatestCommonFactor(int a, int b){
-        // REPLACE WITH YOUR CODE HERE
-        return 1;
+        int largenum = Math.max(a,b);
+        int gcf = 1;
+        for(int i = 1; i<=largenum; i++){
+            if(a%i == 0 && b%i == 0){
+                gcf = i;
+            }
+        }
+        return gcf;
     }
 
     // This method is given a rational, and returns a simplified version
@@ -61,8 +103,14 @@ public class Rational {
     // e.g. simplify(2/4) => 1/2
     //      simplify(1/2) => 1/2
     public static Rational simplify(Rational r) {
-        // REPLACE WITH YOUR CODE HERE
-        return null;
+        int rnum = r.numerator;
+        int rden = r.denominator;
+        int gcf = Rational.greatestCommonFactor(rnum, rden);
+        int newnum = rnum/gcf;
+        int newden = rden/gcf;
+        Rational t = new Rational(newnum, newden);
+
+        return t;
     }
 
     // This following method is NOT static, we'll talk about it next class!
